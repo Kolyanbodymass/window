@@ -6,6 +6,9 @@ const modals = () => {
               windows = document.querySelectorAll('[data-modal]');
 
         trigger.forEach(item => {
+            
+
+            
             item.addEventListener('click', (e) => {
                 if (e.target) {
                     e.preventDefault();
