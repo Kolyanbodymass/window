@@ -1,0 +1,41 @@
+[33mcommit b23ffd09b567ad9d0d5a4227e4619eb2c13fe5de[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Николай Васильев <60035927+Kolyanbodymass@users.noreply.github.com>
+Date:   Sun Jul 5 17:28:15 2020 +0500
+
+    completed validation windows
+
+[33mcommit 6139e42a7b7ebe7f27fa8448078a1b9c516cc924[m
+Author: Николай Васильев <60035927+Kolyanbodymass@users.noreply.github.com>
+Date:   Sat Jul 4 21:18:45 2020 +0500
+
+    add images module and fixed scroll
+
+[33mcommit 03825c8097a44ada2df3234b2efcc6ceed8934d9[m
+Author: Николай Васильев <60035927+Kolyanbodymass@users.noreply.github.com>
+Date:   Fri Jul 3 21:35:52 2020 +0500
+
+    add timer
+
+[33mcommit daf161cc57a65d5afb598d4ce2b86612db685c93[m
+Author: Николай Васильев <60035927+Kolyanbodymass@users.noreply.github.com>
+Date:   Fri Jul 3 20:20:40 2020 +0500
+
+    add changeModalState and checkNumInputs
+
+[33mcommit 968c729bcf1c9140f2a67b944970d4a4e75560d6[m
+Author: Николай Васильев <60035927+Kolyanbodymass@users.noreply.github.com>
+Date:   Tue Jun 30 22:32:35 2020 +0500
+
+    add calc in modal
+
+[33mcommit 55230537d9be87c5803084e69789e7df65bc2e1a[m
+Author: Николай Васильев <60035927+Kolyanbodymass@users.noreply.github.com>
+Date:   Sun Jun 28 13:36:09 2020 +0500
+
+    add tabs js
+
+[33mcommit 0cc45dd0ff77b472ec2f025812674e6376074419[m
+Author: Николай Васильев <60035927+Kolyanbodymass@users.noreply.github.com>
+Date:   Sat Jun 27 21:14:46 2020 +0500
+
+    Create a new repository

@@ -1,3 +1,5 @@
+import checkOpenModal from './checkOpenModal';
+
 const modals = (state) => {
     function bindModal(triggerSelector, modalSelector, closeSelector, closeClickOverlay = true) {
         const trigger = document.querySelectorAll(triggerSelector),
@@ -9,17 +11,6 @@ const modals = (state) => {
               windowProfile = document.querySelectorAll('.checkbox'),
               scroll = calcScroll();
 
-        function checkOpenModal() {
-            const calcOne = document.querySelector('.popup_calc'),
-                  calcTwo = document.querySelector('.popup_calc_profile');
-
-            if (calcOne.style.display == 'block' || calcTwo.style.display == 'block') {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
         function openWindow() {
             windows.forEach(item => {
                 item.style.display = "none";
@@ -30,9 +21,9 @@ const modals = (state) => {
             modal.classList.toggle('fadeIn');
             document.body.style.overflow = "hidden";
             document.body.style.marginRight = `${scroll}px`;
-        }
-         
-        function validationWindows () {
+        } 
+        
+        function validation() {
             trigger.forEach(item => {
                 if (item.parentElement.classList.contains('popup_calc_content')) {
                     if (windowWidth.value == '' ||  windowHeight.value == ''){
@@ -49,7 +40,7 @@ const modals = (state) => {
                     openWindow();
                 }
             });
-
+    
             function checkChechbox() {
                 windowProfile.forEach(item => {
                     if (item.checked == true) {
@@ -59,12 +50,12 @@ const modals = (state) => {
             }
         }
 
-        
+
 
         trigger.forEach(item => {
             item.addEventListener('click', (e) => {
                 if (checkOpenModal()) {
-                    validationWindows();                    
+                    validation();                    
                 } else {
                     if (e.target) {
                         e.preventDefault();

@@ -17922,6 +17922,30 @@ var checkNumInputs = function checkNumInputs(selector) {
 
 /***/ }),
 
+/***/ "./src/js/modules/checkOpenModal.js":
+/*!******************************************!*\
+  !*** ./src/js/modules/checkOpenModal.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var checkOpenModal = function checkOpenModal() {
+  var calcOne = document.querySelector('.popup_calc'),
+      calcTwo = document.querySelector('.popup_calc_profile');
+
+  if (calcOne.style.display == 'block' || calcTwo.style.display == 'block') {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (checkOpenModal);
+
+/***/ }),
+
 /***/ "./src/js/modules/forms.js":
 /*!*********************************!*\
   !*** ./src/js/modules/forms.js ***!
@@ -18079,6 +18103,8 @@ var images = function images() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _checkOpenModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./checkOpenModal */ "./src/js/modules/checkOpenModal.js");
+
 
 
 var modals = function modals(state) {
@@ -18093,17 +18119,6 @@ var modals = function modals(state) {
         windowProfile = document.querySelectorAll('.checkbox'),
         scroll = calcScroll();
 
-    function checkOpenModal() {
-      var calcOne = document.querySelector('.popup_calc'),
-          calcTwo = document.querySelector('.popup_calc_profile');
-
-      if (calcOne.style.display == 'block' || calcTwo.style.display == 'block') {
-        return true;
-      } else {
-        return false;
-      }
-    }
-
     function openWindow() {
       windows.forEach(function (item) {
         item.style.display = "none";
@@ -18115,7 +18130,7 @@ var modals = function modals(state) {
       document.body.style.marginRight = "".concat(scroll, "px");
     }
 
-    function validationWindows() {
+    function validation() {
       trigger.forEach(function (item) {
         if (item.parentElement.classList.contains('popup_calc_content')) {
           if (windowWidth.value == '' || windowHeight.value == '') {
@@ -18145,8 +18160,8 @@ var modals = function modals(state) {
 
     trigger.forEach(function (item) {
       item.addEventListener('click', function (e) {
-        if (checkOpenModal()) {
-          validationWindows();
+        if (Object(_checkOpenModal__WEBPACK_IMPORTED_MODULE_1__["default"])()) {
+          validation();
         } else {
           if (e.target) {
             e.preventDefault();
