@@ -14,10 +14,8 @@ const modals = (state) => {
                   calcTwo = document.querySelector('.popup_calc_profile');
 
             if (calcOne.style.display == 'block' || calcTwo.style.display == 'block') {
-                console.log('true');
                 return true;
             } else {
-                console.log('false');
                 return false;
             }
         }
@@ -35,31 +33,39 @@ const modals = (state) => {
         }
          
         function validationWindows () {
-            
-        
-            if (windowWidth.value == '' ||  windowHeight.value == ''){
-                console.log('введите ширину и высоту');
-            } else {
-                openWindow();
+            trigger.forEach(item => {
+                if (item.parentElement.classList.contains('popup_calc_content')) {
+                    if (windowWidth.value == '' ||  windowHeight.value == ''){
+                        console.log('введите ширину и высоту');
+                    } else {
+                        openWindow();
+                    }
+                } else if (item.parentElement.classList.contains('popup_calc_profile_content')){
+                    checkChechbox();
+                    if (document.querySelector('.popup_calc_profile').style.display == 'block') {
+                        console.log('нет галочки');
+                    }
+                } else {
+                    openWindow();
+                }
+            });
+
+            function checkChechbox() {
+                windowProfile.forEach(item => {
+                    if (item.checked == true) {
+                        openWindow();
+                    } 
+                });
             }
-            // } else {
-            //     windowProfile.forEach(item => {
-            //         if (item.checked == true) {
-            //             openWindow();
-            //         } else {
-            //             console.log('нет галочки');
-            //         }
-            //     });
-            // }
         }
+
+        
 
         trigger.forEach(item => {
             item.addEventListener('click', (e) => {
                 if (checkOpenModal()) {
-                    console.log('выполняем проверку');
                     validationWindows();                    
                 } else {
-                    console.log('открываем окно');
                     if (e.target) {
                         e.preventDefault();
                     }
