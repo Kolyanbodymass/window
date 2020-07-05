@@ -6,9 +6,6 @@ const modals = (state) => {
               modal = document.querySelector(modalSelector),
               close = document.querySelector(closeSelector),
               windows = document.querySelectorAll('[data-modal]'),
-              windowWidth = document.querySelector('#width'),
-              windowHeight = document.querySelector('#height'),
-              windowProfile = document.querySelectorAll('.checkbox'),
               scroll = calcScroll();
 
         function openWindow() {
@@ -22,25 +19,34 @@ const modals = (state) => {
             document.body.style.overflow = "hidden";
             document.body.style.marginRight = `${scroll}px`;
         } 
-        
+
         function validation() {
+            const windowWidth = document.querySelector('#width'),
+                  windowHeight = document.querySelector('#height'),
+                  windowProfile = document.querySelectorAll('.checkbox');
+
+            let div = document.createElement('div');
+            div.classList.add('status');
+
             trigger.forEach(item => {
                 if (item.parentElement.classList.contains('popup_calc_content')) {
                     if (windowWidth.value == '' ||  windowHeight.value == ''){
-                        console.log('введите ширину и высоту');
+                        div.textContent = "Введите ширину и высоту";
+                        item.parentElement.appendChild(div);
                     } else {
                         openWindow();
                     }
                 } else if (item.parentElement.classList.contains('popup_calc_profile_content')){
                     checkChechbox();
                     if (document.querySelector('.popup_calc_profile').style.display == 'block') {
-                        console.log('нет галочки');
+                        div.textContent = "Выберете один из вариантов";
+                        item.parentElement.appendChild(div);
                     }
                 } else {
                     openWindow();
                 }
             });
-    
+        
             function checkChechbox() {
                 windowProfile.forEach(item => {
                     if (item.checked == true) {
@@ -49,13 +55,11 @@ const modals = (state) => {
                 });
             }
         }
-
-
-
+        
         trigger.forEach(item => {
             item.addEventListener('click', (e) => {
                 if (checkOpenModal()) {
-                    validation();                    
+                    validation(trigger);                    
                 } else {
                     if (e.target) {
                         e.preventDefault();
